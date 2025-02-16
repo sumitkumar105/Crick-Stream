@@ -60,7 +60,9 @@ export default function SeriesInfoCard({ data }: any) {
                       className="h-full w-full object-cover rounded-full"
                     />
                   </div>
-                  <h2 className="text-lg font-semibold">{info?.t1}</h2>
+                  <h2 className="text-lg font-semibold">
+                    {info?.t1 || "Team1"}
+                  </h2>
                   <h2 className="text-lg font-semibold">{info?.t1s}</h2>
                 </div>
                 <div className="flex items-center gap-4">
@@ -71,11 +73,30 @@ export default function SeriesInfoCard({ data }: any) {
                       className="h-full w-full object-cover rounded-full"
                     />
                   </div>
-                  <h2 className="text-lg font-semibold">{info?.t2}</h2>
+                  <h2 className="text-lg font-semibold">
+                    {info?.t2 || "Team2"}
+                  </h2>
                   <h2 className="text-lg font-semibold">{info?.t2s}</h2>
                 </div>
               </div>
             )}
+            <div>
+              {/* Display Score */}
+              {info?.score && info?.score.length > 0 && (
+                <div className="mt-2 p-2 bg-white rounded-lg shadow-sm">
+                  <h4 className="text-md font-semibold text-gray-700">
+                    Current Score:
+                  </h4>
+                  {info.score.map((inning: any, index: number) => (
+                    <div key={index} className="text-sm text-gray-800">
+                      <span className="font-semibold">{inning.inning}: </span>
+                      {inning.r}/{inning.w} ({inning.o} overs)
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div>
               <h3
                 className={`font-semibold ${

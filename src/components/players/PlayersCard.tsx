@@ -1,8 +1,12 @@
 import player from "../../assets/player.avif";
 import { IPlayer } from "../../config/IPlayer.ts";
+import { useNavigate } from "react-router-dom";
 export default function PlayersCard({ data }: any) {
-  const { name, country }: IPlayer = data;
-
+  const navigate = useNavigate();
+  const { id, name, country }: IPlayer = data;
+  const handleNavigate = (id: string) => {
+    navigate(`/players/${id}`);
+  };
   return (
     <div className="flex justify-between items-center border-none rounded shadow-lg bg-gray-200 px-2 py-2  m-3">
       <div className="flex gap-2">
@@ -18,7 +22,10 @@ export default function PlayersCard({ data }: any) {
           <h3 className="text-gray-500">{country}</h3>
         </div>
       </div>
-      <button className="bg-indigo-500 text-white border-none px-1 py-1 rounded">
+      <button
+        onClick={() => handleNavigate(id)}
+        className="bg-indigo-500 text-white border-none px-1 py-1 rounded"
+      >
         View Info
       </button>
     </div>

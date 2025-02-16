@@ -8,6 +8,7 @@ import Layout from "../layout/Layout";
 import LiveScore from "../pages/LiveScore";
 import SeriesInfo from "../pages/Series/SeriesInfo";
 import Players from "../pages/Players/Players";
+import PlayerInfo from "../pages/Players/PlayersInfo";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/players",
         element: <Players />,
+      },
+      {
+        path: "/players/:playerId",
+        element: <PlayerInfo />,
       },
       {
         path: "/live-score",

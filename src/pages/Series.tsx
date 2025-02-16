@@ -1,3 +1,8 @@
+import ComingSoon from "../components/global-components/CommingSoon";
 export default function Series() {
-  return <div>Series</div>;
+  return (
+    <div>
+      <ComingSoon />
+    </div>
+  );
 }
