@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 export default function PlayersCard({ data }: any) {
   const navigate = useNavigate();
   const { id, name, country }: IPlayer = data;
-  const handleNavigate = (id: string) => {
+  const handleNavigate = (id: string = "") => {
     navigate(`/players/${id}`);
   };
+
   return (
     <div className="flex justify-between items-center border-none rounded shadow-lg bg-gray-200 px-2 py-2  m-3">
       <div className="flex gap-2">

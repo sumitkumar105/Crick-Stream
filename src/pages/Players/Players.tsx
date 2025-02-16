@@ -34,7 +34,7 @@ export default function Players() {
     <Container>
       <div className="flex md:justify-center items-center px-4 py-4">
         <UiInput
-          label="Search Player Name"
+          lable="Search Player Name"
           name="search"
           className="md:w-[400px] border-1 border-gray-300 px-2 py-2 rounded-lg"
           type="text"

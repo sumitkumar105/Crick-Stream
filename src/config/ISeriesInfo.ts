@@ -21,4 +21,5 @@ export interface ISeriesInfo {
   t2img?: string; // Team 2 image URL
   series?: string; // Series name
   teamInfo?: any[];
+  score?: any[];
 }
