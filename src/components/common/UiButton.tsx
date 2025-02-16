@@ -1,9 +1,7 @@
-import React from "react";
 import { IButton } from "../../config/IButton.ts";
 export default function UiButton({
   lable,
   onClick,
-  variant,
   type,
   disabled,
   className,

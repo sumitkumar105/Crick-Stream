@@ -1,4 +1,5 @@
-export const matchTypeColors: { [key: string]: string } = {
+import { IMatchTypes } from "../config/IMatchTypes";
+export const matchTypeColors: IMatchTypes = {
   ODI: "bg-blue-500 text-white",
   T20: "bg-green-500 text-white",
   TEST: "bg-violet-500 text-white",

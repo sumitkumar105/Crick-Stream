@@ -1,6 +1,6 @@
 export interface INavData {
-  path: String;
-  title: String;
-  icon?: String;
+  path: string;
+  title: string;
+  icon?: string;
   isActive?: boolean;
 }

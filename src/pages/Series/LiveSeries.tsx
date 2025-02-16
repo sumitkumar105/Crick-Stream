@@ -1,4 +1,4 @@
-import React from "react";
+import { ICricketSeries } from "../../config/ISeries.ts";
 import useBaseUrl from "../../utils/custom-hook/useBaseUrl";
 import SeriesCard from "../../components/SeriesCard";
 import Container from "../../components/global-components/Container";
@@ -7,7 +7,7 @@ import useFetch from "../../utils/custom-hook/useFetch";
 export default function LiveSeries() {
   const { baseUrl, Key } = useBaseUrl();
 
-  const { data, error, isLoading } = useFetch(
+  const { data, isLoading } = useFetch(
     `cricketSeries`,
     `${baseUrl}series?apikey=${Key}`
   );
@@ -19,7 +19,7 @@ export default function LiveSeries() {
     <>
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-3 py-2">
-          {data?.data?.map((series, index) => {
+          {data?.data?.map((series: ICricketSeries) => {
             return <SeriesCard {...series} key={series.id} />;
           })}
         </div>

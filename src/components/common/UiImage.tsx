@@ -1,5 +1,3 @@
-import React from "react";
-import hero1 from "../../assets/hero1.jpg";
 interface Iprops {
   src: string;
   alt?: string;

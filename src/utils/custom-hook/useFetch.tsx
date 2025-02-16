@@ -6,7 +6,6 @@ export default function useFetch(key: string, url: string) {
     queryKey: [key, url],
     queryFn: () => fetchData(url),
     staleTime: 30 * 60 * 1000,
-    cacheTime: 60 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
   return { data, error, isLoading, isError, refetch, isFetching };

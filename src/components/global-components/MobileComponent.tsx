@@ -1,12 +1,13 @@
-import React from "react";
 import { NavData } from "../../constant/NavContent";
+import { INavData } from "../../config/INavData.ts";
 import UiLogo from "../common/UiLogo";
 import UiSvg from "../common/UiSvg";
 interface IProps {
   isOpen: boolean;
   handleClose: () => void;
-  handleTab: () => void;
+  handleTab: (path?: string, view?: string) => void;
 }
+
 export default function MobileComponent({
   isOpen,
   handleClose,
@@ -36,9 +37,9 @@ export default function MobileComponent({
           />
         </div>
         <ul className=" py-2 flex flex-col  space-x-1">
-          {NavData?.map((item, index) => {
+          {NavData?.map((item: INavData, index: number) => {
             return (
-              <div key={item?.title}>
+              <div key={index}>
                 <li
                   className={`${
                     location.pathname === item?.path

@@ -1,13 +1,10 @@
-import React from "react";
 import UiSvg from "./UiSvg";
 import { ILogo } from "../../config/ILogo.ts";
 export default function UiLogo({
   iconColor,
   iconHeight,
   iconWidth,
-  path,
   textColor,
-  lable,
   onClick,
 }: ILogo) {
   return (

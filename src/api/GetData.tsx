@@ -1,2 +1,2 @@
 import axios from "axios";
-export const getData = (url) => axios.get(url);
+export const getData = (url: string) => axios.get(url);

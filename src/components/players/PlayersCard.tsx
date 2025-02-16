@@ -1,7 +1,7 @@
-import React from "react";
 import player from "../../assets/player.avif";
-export default function PlayersCard({ data }) {
-  const { id, name, country } = data;
+import { IPlayer } from "../../config/IPlayer.ts";
+export default function PlayersCard({ data }: any) {
+  const { name, country }: IPlayer = data;
 
   return (
     <div className="flex justify-between items-center border-none rounded shadow-lg bg-gray-200 px-2 py-2  m-3">

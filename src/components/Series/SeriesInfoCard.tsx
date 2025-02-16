@@ -1,11 +1,11 @@
-import React from "react";
 import { matchTypeColors } from "../../constant/MatchType.ts";
 import { formatDate } from "../../utils/formatDate.ts";
+import { ISeriesInfo } from "../../config/ISeriesInfo.ts";
 import defaultImage from "../../assets/defaultImage.png";
 export default function SeriesInfoCard({ data }: any) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-      {data?.map((info, index) => {
+      {data?.map((info: ISeriesInfo) => {
         return (
           <div
             key={info?.id}
@@ -31,9 +31,9 @@ export default function SeriesInfoCard({ data }: any) {
                   : formatDate(info?.dateTimeGMT?.split("T")[0])}
               </p>
             </div>
-            {info?.teamInfo?.length > 0 ? (
+            {(info?.teamInfo ?? []).length > 0 ? (
               <div className="grid grid-cols-1 gap-2 py-2 justify-center">
-                {info?.teamInfo?.map((team, index) => {
+                {info?.teamInfo?.map((team: any) => {
                   return (
                     <>
                       <div className="flex items-center gap-4">
@@ -79,7 +79,7 @@ export default function SeriesInfoCard({ data }: any) {
             <div>
               <h3
                 className={`font-semibold ${
-                  info?.matchEnded && indo?.matchStarted
+                  info?.matchEnded && info?.matchStarted
                     ? "text-blue-500"
                     : "text-red-900"
                 }`}

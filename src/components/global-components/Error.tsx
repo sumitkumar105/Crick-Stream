@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Error() {
   return (
     <div className=" flex justify-center items-center mx-auto mt-2 mb-2 border-none  outline:none shadow-lg rounded bg-gray-200 h-[300px] w-[300px]">

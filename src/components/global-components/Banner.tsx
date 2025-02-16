@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import UiBanner from "../../components/common/UiBanner";
 import { bannerImage } from "../../constant/BannerUrl";
 export default function Banner() {

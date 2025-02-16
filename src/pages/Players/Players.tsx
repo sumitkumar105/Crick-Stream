@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { IPlayer } from "../../config/IPlayer.ts";
 import Container from "../../components/global-components/Container";
 import PlayersCard from "../../components/players/PlayersCard";
 import useBaseUrl from "../../utils/custom-hook/useBaseUrl";
@@ -6,17 +7,15 @@ import useFetch from "../../utils/custom-hook/useFetch";
 import UiLoader from "../../components/common/UiLoader";
 import UiInput from "../../components/common/UiInput";
 export default function Players() {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState<string | null>(null);
   const { baseUrl, Key } = useBaseUrl();
-  const { data, error, isLoading } = useFetch(
+  const { data, isLoading } = useFetch(
     `playerInfo`,
     `${baseUrl}players?apikey=${Key}&offset=0&search=${query}`
   );
-  console.log(data);
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setQuery(value);
-    console.log(name, value);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
   };
   if (isLoading) {
     <UiLoader />;
@@ -36,7 +35,7 @@ export default function Players() {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 ">
-        {data?.data?.map((player, index) => {
+        {data?.data?.map((player: IPlayer) => {
           return <PlayersCard key={player?.id} data={player} />;
         })}
       </div>

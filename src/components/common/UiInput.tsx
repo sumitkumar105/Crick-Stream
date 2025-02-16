@@ -1,5 +1,4 @@
-import React from "react";
-
+import { IInput } from "../../config/IInput.ts";
 export default function ({
   lable,
   name,
@@ -8,7 +7,7 @@ export default function ({
   onChange,
   value,
   placeholder,
-}) {
+}: IInput) {
   return (
     <div className="flex  flex-col gap-1">
       {lable && <p className="font-semibold ">{lable}</p>}
@@ -16,7 +15,7 @@ export default function ({
         className={className}
         type={type}
         onChange={onChange}
-        value={value}
+        value={value ?? ""}
         name={name}
         placeholder={placeholder}
       />

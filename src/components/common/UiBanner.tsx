@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import UiImage from "./UiImage";
 import live from "../../assets/live.gif";
 interface IProps {

@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Banner from "../components/global-components/Banner";
 import UiCard from "../components/common/UiCard";
@@ -13,7 +12,7 @@ export default function Home() {
       <Banner />
       <div className="container mx-auto flex justify-center items-center py-4">
         <div className="grid lg:grid-cols-4 lg:gap-4 gap-2 w-full px-2">
-          {cricketSections?.map((info, index) => {
+          {cricketSections?.map((info) => {
             return (
               <UiCard
                 key={info?.id}

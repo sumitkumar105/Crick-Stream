@@ -1,4 +1,3 @@
-import React from "react";
 import { IconProps } from "../../config/IUiSvg.ts";
 export default function UiSvg({
   height,
@@ -17,7 +16,7 @@ export default function UiSvg({
       fill={color}
       onClick={onClick}
     >
-      <path d={path}></path>
+      {path && <path d={path} />}
     </svg>
   );
 }

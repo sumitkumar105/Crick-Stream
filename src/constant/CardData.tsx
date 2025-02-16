@@ -1,4 +1,5 @@
-const cricketSections = [
+import { ICricketsection } from "../config/ICricketsection.ts";
+const cricketSections: ICricketsection[] = [
   {
     id: 1,
     title: "Real-Time Live Scores",
