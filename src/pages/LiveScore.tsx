@@ -5,7 +5,6 @@ import SeriesInfoCard from "../components/Series/SeriesInfoCard";
 import useBaseUrl from "../utils/custom-hook/useBaseUrl";
 import useFetch from "../utils/custom-hook/useFetch";
 import UiLoader from "../components/common/UiLoader";
-import Container from "../components/global-components/Container";
 import Error from "../components/global-components/Error";
 import { matchTypeColors, matchTypes } from "../constant/MatchType.ts";
 export default function LiveScore() {
@@ -30,7 +29,7 @@ export default function LiveScore() {
     setSelectedType(type);
   };
   return (
-    <Container>
+    <div className="container mx-auto ">
       {filterData?.length > 0 ? (
         <>
           <div className="flex flex-wrap  gap-2 mt-2 px-4 md:pr-4 md:justify-end m-2">
@@ -56,6 +55,6 @@ export default function LiveScore() {
       ) : (
         <Error />
       )}
-    </Container>
+    </div>
   );
 }
