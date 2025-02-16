@@ -19,7 +19,7 @@ export default function LiveSeries() {
   return (
     <>
       <Container>
-        {data.status !== "failure" ? (
+        {data?.status !== "failure" ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 py-2">
             {data?.data?.map((series: ICricketSeries) => {
               return <SeriesCard {...series} key={series.id} />;
