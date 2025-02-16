@@ -54,7 +54,7 @@ export default function LiveScore() {
           <SeriesInfoCard data={filterData} />
         </>
       ) : (
-        <Error />
+        <Error status={data?.status} reason={data?.reason} />
       )}
     </div>
   );

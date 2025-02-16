@@ -6,7 +6,7 @@ import useBaseUrl from "../../utils/custom-hook/useBaseUrl";
 import useFetch from "../../utils/custom-hook/useFetch";
 import UiLoader from "../../components/common/UiLoader";
 import UiInput from "../../components/common/UiInput";
-
+import Error from "../../components/global-components/Error";
 export default function Players() {
   const [query, setQuery] = useState<string>("");
   const [debouncedQuery, setDebouncedQuery] = useState<string>(""); // State for debounced query
@@ -32,26 +32,32 @@ export default function Players() {
 
   return (
     <Container>
-      <div className="flex md:justify-center items-center px-4 py-4">
-        <UiInput
-          lable="Search Player Name"
-          name="search"
-          className="md:w-[400px] border-1 border-gray-300 px-2 py-2 rounded-lg"
-          type="text"
-          onChange={handleChange}
-          value={query}
-          placeholder="Search here"
-        />
-      </div>
+      {data?.status !== "failure" ? (
+        <>
+          <div className="flex md:justify-center items-center px-4 py-4">
+            <UiInput
+              lable="Search Player Name"
+              name="search"
+              className="md:w-[400px] border-1 border-gray-300 px-2 py-2 rounded-lg"
+              type="text"
+              onChange={handleChange}
+              value={query}
+              placeholder="Search here"
+            />
+          </div>
 
-      {isLoading ? (
-        <UiLoader />
+          {isLoading ? (
+            <UiLoader />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-4">
+              {data?.data?.map((player: IPlayer) => (
+                <PlayersCard key={player?.id} data={player} />
+              ))}
+            </div>
+          )}
+        </>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-4">
-          {data?.data?.map((player: IPlayer) => (
-            <PlayersCard key={player?.id} data={player} />
-          ))}
-        </div>
+        <Error status={data?.status} reason={data?.reason} />
       )}
     </Container>
   );

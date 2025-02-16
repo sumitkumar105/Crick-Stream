@@ -14,6 +14,7 @@ export default function Matches() {
     `liveScore`,
     `${baseUrl}currentMatches?apikey=${Key}`
   );
+  console.log(data);
   const [selectedType, setSelectedType] = useState("ALL");
   const filterData =
     selectedType === "ALL"
@@ -54,7 +55,7 @@ export default function Matches() {
           <SeriesInfoCard data={filterData} />
         </>
       ) : (
-        <Error />
+        <Error status={data?.status} reason={data?.reason} />
       )}
     </div>
   );
