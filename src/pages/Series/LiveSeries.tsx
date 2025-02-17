@@ -19,7 +19,7 @@ export default function LiveSeries() {
     <>
       <div className="container mx-auto flex flex-col justify-center items-center">
         {data?.status !== "failure" ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 py-2">
+          <div className="grid grid-cols-1 lg:grid-cols-3 py-2 justify-center">
             {data?.data?.map((series: ICricketSeries) => {
               return <SeriesCard {...series} key={series.id} />;
             })}
