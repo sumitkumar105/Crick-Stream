@@ -31,7 +31,7 @@ export default function Matches() {
   };
   //className="container mx-auto flex justify-center items-center"
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto flex flex-col justify-center items-center">
       {filterData?.length > 0 ? (
         <>
           <div className="flex flex-wrap  gap-2 mt-2 px-4 md:pr-4 md:justify-end m-2">
